@@ -5,7 +5,7 @@
 ### 🎬 I video sono in [`video_animation/media/videos/`](video_animation/media/videos/) — scarica **[1080p60 · 18,7 MB](video_animation/media/videos/potenze_complesse_1080p60.mp4)** oppure **[480p15 · 5,2 MB](video_animation/media/videos/potenze_complesse_480p15.mp4)**
 
 *Il sito si apre e basta. I video invece vanno scaricati: GitHub non riproduce
-i file `.mp4` nel browser: premi su "Vedi Raw" per scaricare il video. Stesso contenuto nelle due versioni — 4 min 25 s —
+i file `.mp4` nel browser: premi su "View Raw" per scaricare il video. Stesso contenuto nelle due versioni — 4 min 25 s —
 la 480p serve solo per una visione rapida o con poca banda. Nella stessa
 cartella ci sono anche le [sei scene singole](video_animation/media/videos/scenes/1080p60/).*
 
