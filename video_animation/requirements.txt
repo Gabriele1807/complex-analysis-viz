@@ -1,0 +1,33 @@
+# Dipendenze della parte video (Manim Community Edition).
+#
+# Installazione in un ambiente virtuale LOCALE alla cartella del progetto:
+#
+#     python -m venv .venv
+#     .venv\Scripts\python -m pip install -r requirements.txt
+#
+# Se Manim e' gia' presente nel Python di sistema e funziona, si puo'
+# riutilizzarlo senza riscaricarlo creando il venv con:
+#
+#     python -m venv .venv --system-site-packages
+#     .venv\Scripts\python -m pip install pytest imageio-ffmpeg
+#
+# che e' esattamente la configurazione con cui questo progetto e' stato
+# sviluppato e collaudato (Manim 0.21.0, NumPy 2.4.0, Python 3.11.9).
+
+manim>=0.19,<0.22
+
+# Manim 0.19+ scrive i file MP4 tramite PyAV (libav incorporato): per il
+# RENDERING un FFmpeg di sistema non serve. PyAV e' gia' una dipendenza di
+# Manim, qui e' esplicitata solo per chiarezza.
+av>=14,<19
+
+# Serve per la CONCATENAZIONE delle scene (concatena.py): e' una wheel che
+# include il binario di FFmpeg, quindi non richiede installazioni di sistema.
+imageio-ffmpeg>=0.5
+
+# Suite di test delle identita' matematiche (test_complex_maps.py).
+pytest>=8
+
+# NumPy e' una dipendenza di Manim; il vincolo e' esplicitato perche'
+# complex_maps.py usa il comportamento NumPy 2 di np.where su array complessi.
+numpy>=1.26

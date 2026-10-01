@@ -1,0 +1,636 @@
+/* Foglio di stile dell'applicazione.
+   Tema scuro: i ritratti di fase sono molto saturi e su fondo chiaro
+   risulterebbero sbiaditi e faticosi da leggere a lungo. */
+
+:root {
+  --sfondo: #0e1117;
+  --sfondo-pannello: #161b23;
+  --sfondo-pannello-2: #1c222c;
+  --bordo: #2a3240;
+  --testo: #e6ebf2;
+  --testo-secondario: #9aa5b1;
+  --accento: #ffb347;
+  --accento-2: #2bd9c8;
+  --allerta: #ff6b75;
+  --raggio: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--sfondo);
+  color: var(--testo);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 18px 20px 48px;
+}
+
+/* --- Intestazione ------------------------------------------------------- */
+
+.intestazione h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+.intestazione p {
+  margin: 0 0 14px;
+  color: var(--testo-secondario);
+  max-width: 90ch;
+}
+
+/* --- Controlli ---------------------------------------------------------- */
+
+.controlli {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  background: var(--sfondo-pannello);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.controlli__gruppo h4 {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--testo-secondario);
+}
+
+.controlli__gruppo--largo {
+  grid-column: 1 / -1;
+}
+
+.segmentato {
+  display: flex;
+  gap: 4px;
+  background: var(--sfondo);
+  border: 1px solid var(--bordo);
+  border-radius: 8px;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+.segmentato button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--testo-secondario);
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+}
+
+.segmentato button.attivo {
+  background: var(--sfondo-pannello-2);
+  color: var(--accento);
+  font-weight: 600;
+}
+
+.segmentato button:hover:not(.attivo) {
+  color: var(--testo);
+}
+
+.segmentato--piccolo button {
+  font-size: 0.78rem;
+  padding: 4px 6px;
+}
+
+.campo {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 0.85rem;
+  color: var(--testo-secondario);
+}
+
+.campo span {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.campo strong {
+  color: var(--testo);
+}
+
+.campo input[type="range"] {
+  width: 100%;
+  accent-color: var(--accento);
+}
+
+.campo--inline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.campo--inline span {
+  margin: 0;
+}
+
+.campo--numerico {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.campo--numerico span {
+  margin: 0;
+  min-width: 56px;
+}
+
+.campo--numerico input,
+.campi-punto input,
+.campi-dominio input[type="number"] {
+  flex: 1;
+  min-width: 0;
+  background: var(--sfondo);
+  border: 1px solid var(--bordo);
+  border-radius: 6px;
+  color: var(--testo);
+  padding: 5px 7px;
+  font-family: "Consolas", "SF Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.campi-punto,
+.campi-dominio {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.riga-pulsanti {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+button {
+  background: var(--sfondo-pannello-2);
+  border: 1px solid var(--bordo);
+  color: var(--testo);
+  border-radius: 7px;
+  padding: 6px 11px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+button:hover {
+  border-color: var(--accento);
+}
+
+button.attivo {
+  border-color: var(--accento);
+  color: var(--accento);
+}
+
+.interruttori {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 5px 14px;
+}
+
+.interruttore {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  color: var(--testo-secondario);
+  cursor: pointer;
+}
+
+.interruttore input {
+  accent-color: var(--accento);
+}
+
+.interruttore:hover {
+  color: var(--testo);
+}
+
+/* --- Corpo: piani e colonna destra -------------------------------------- */
+
+.corpo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 16px;
+  align-items: start;
+}
+
+.piani {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+  min-width: 0;
+}
+
+.piano {
+  background: var(--sfondo-pannello);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 10px 12px 12px;
+  min-width: 0;
+}
+
+.piano__intestazione {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.piano__intestazione h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.piano__sottotitolo {
+  color: var(--testo-secondario);
+  font-size: 0.76rem;
+}
+
+.piano__tela {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0b0e13;
+  /* Impedisce la propagazione dello scorrimento alla pagina: senza questo,
+     raggiunto un limite dello zoom il browser riprenderebbe a far scorrere il
+     documento sotto il piano. */
+  overscroll-behavior: contain;
+}
+
+.piano__tela canvas {
+  display: block;
+}
+
+.piano__sfondo-vuoto {
+  position: absolute;
+  inset: 0;
+  background: #0b0e13;
+}
+
+.piano__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.piano__overlay--interattivo {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.piano__overlay:focus-visible {
+  outline: 2px solid var(--accento);
+  outline-offset: -2px;
+}
+
+.piano__tacca {
+  font-size: 10px;
+  fill: rgba(170, 182, 198, 0.75);
+  font-family: "Consolas", monospace;
+  pointer-events: none;
+}
+
+.piano__etichetta {
+  font-size: 11.5px;
+  font-family: "Consolas", monospace;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: rgba(8, 10, 14, 0.85);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.piano__avviso,
+.piano__errore {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background: rgba(14, 17, 23, 0.92);
+  border: 1px solid var(--bordo);
+  border-left: 3px solid var(--accento);
+  border-radius: 6px;
+  padding: 6px 9px;
+  font-size: 0.74rem;
+  color: var(--testo-secondario);
+}
+
+.piano__errore {
+  border-left-color: var(--allerta);
+}
+
+/* --- Pannello del punto -------------------------------------------------- */
+
+.colonna-destra {
+  min-width: 0;
+}
+
+.pannello-punto,
+.pannello-legenda,
+.pannello-traiettorie,
+.pannello-preimmagini,
+.pannello-casi,
+.pannello-superficie {
+  background: var(--sfondo-pannello);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 14px 16px;
+}
+
+.pannello-punto h3 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+}
+
+h4 {
+  margin: 16px 0 7px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--testo-secondario);
+}
+
+.formula-corrente {
+  background: var(--sfondo);
+  border: 1px solid var(--bordo);
+  border-left: 3px solid var(--accento-2);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-family: "Consolas", monospace;
+  font-size: 0.82rem;
+  color: var(--accento-2);
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.tabella-valori {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.tabella-valori th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--testo-secondario);
+  padding: 3px 10px 3px 0;
+  white-space: nowrap;
+  vertical-align: top;
+  width: 1%;
+}
+
+.tabella-valori td {
+  padding: 3px 0;
+  font-family: "Consolas", monospace;
+  overflow-wrap: anywhere;
+}
+
+.tabella-valori tr.separatore th,
+.tabella-valori tr.separatore td {
+  border-top: 1px solid var(--bordo);
+  padding-top: 8px;
+}
+
+.secondario {
+  color: var(--testo-secondario);
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+
+.sezione {
+  border-top: 1px solid var(--bordo);
+  margin-top: 14px;
+  padding-top: 4px;
+}
+
+.elenco-valori {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+}
+
+.elenco-valori li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+.elenco-valori li.evidenziato {
+  background: rgba(255, 179, 71, 0.1);
+}
+
+.elenco-valori .indice {
+  color: var(--testo-secondario);
+  min-width: 48px;
+  font-family: "Consolas", monospace;
+}
+
+.elenco-valori .valore {
+  font-family: "Consolas", monospace;
+  overflow-wrap: anywhere;
+}
+
+.badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  color: var(--accento);
+  border: 1px solid rgba(255, 179, 71, 0.4);
+  border-radius: 4px;
+  padding: 0 5px;
+  white-space: nowrap;
+}
+
+.nota {
+  color: var(--testo-secondario);
+  font-size: 0.8rem;
+  margin: 6px 0;
+}
+
+.nota--allerta {
+  color: var(--allerta);
+}
+
+.avvisi {
+  margin-top: 12px;
+  border-top: 1px solid var(--bordo);
+  padding-top: 8px;
+}
+
+.avviso {
+  background: rgba(255, 107, 117, 0.08);
+  border-left: 3px solid var(--allerta);
+  border-radius: 5px;
+  padding: 7px 9px;
+  font-size: 0.78rem;
+  color: #ffc9cd;
+  margin: 6px 0;
+}
+
+/* --- Pannelli a schede ---------------------------------------------------- */
+
+.pannelli {
+  margin-top: 18px;
+}
+
+.tab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--bordo);
+  margin-bottom: 0;
+}
+
+.tab button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  color: var(--testo-secondario);
+  padding: 8px 14px;
+}
+
+.tab button.attivo {
+  background: var(--sfondo-pannello);
+  border-color: var(--bordo);
+  color: var(--accento);
+  margin-bottom: -1px;
+}
+
+.tab__contenuto > * {
+  border-top-left-radius: 0;
+}
+
+/* --- Legenda -------------------------------------------------------------- */
+
+.legenda-contenuto {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.ruota-colori {
+  width: 180px;
+  height: 180px;
+  flex: none;
+}
+
+.elenco-nota {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--testo-secondario);
+  font-size: 0.82rem;
+  max-width: 80ch;
+}
+
+.elenco-nota li {
+  margin-bottom: 6px;
+}
+
+.elenco-nota strong {
+  color: var(--testo);
+}
+
+/* --- Casi guidati --------------------------------------------------------- */
+
+.griglia-casi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.caso {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  text-align: left;
+  padding: 9px 11px;
+  line-height: 1.35;
+}
+
+.caso strong {
+  color: var(--testo);
+  font-size: 0.87rem;
+}
+
+.caso span {
+  color: var(--testo-secondario);
+  font-size: 0.76rem;
+}
+
+.caso.attivo {
+  background: rgba(255, 179, 71, 0.08);
+}
+
+.spiegazione {
+  background: var(--sfondo);
+  border: 1px solid var(--bordo);
+  border-left: 3px solid var(--accento);
+  border-radius: 7px;
+  padding: 10px 14px;
+  font-size: 0.86rem;
+  max-width: 100ch;
+  white-space: pre-line;
+}
+
+.spiegazione p {
+  margin: 0 0 9px;
+}
+
+.spiegazione p:last-child {
+  margin-bottom: 0;
+}
+
+.griglia-pulsanti {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.contenitore-plotly {
+  width: 100%;
+  min-height: 460px;
+}
+
+/* --- Pie di pagina -------------------------------------------------------- */
+
+.pie {
+  margin-top: 26px;
+  padding-top: 12px;
+  border-top: 1px solid var(--bordo);
+  color: var(--testo-secondario);
+  font-size: 0.78rem;
+}
+
+/* --- Schermi stretti ------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .corpo {
+    grid-template-columns: 1fr;
+  }
+}

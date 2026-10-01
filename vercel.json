@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "cd interactive_map && npm install",
+  "buildCommand": "cd interactive_map && npm run build",
+  "outputDirectory": "interactive_map/dist",
+  "framework": null,
+  "github": {
+    "silent": true
+  }
+}

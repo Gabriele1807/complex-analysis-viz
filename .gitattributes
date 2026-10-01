@@ -1,0 +1,23 @@
+# Normalizzazione dei fine riga: LF nel repository, fine riga nativi nella
+# copia di lavoro. Senza questo, lavorando su Windows il repository si
+# riempirebbe di differenze CRLF spurie.
+* text=auto eol=lf
+
+# Media: mai toccati dalla normalizzazione. Git li riconosce gia' come binari,
+# ma dichiararlo esplicitamente evita che una futura configurazione sbagliata
+# (per esempio `core.autocrlf` forzato) corrompa i video.
+*.mp4 binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.woff binary
+*.woff2 binary
+
+# File che devono restare a LF anche su Windows, perche' vengono eseguiti o
+# interpretati da strumenti che non tollerano i CR.
+*.sh      text eol=lf
+*.mjs     text eol=lf
+*.py      text eol=lf
+
+# SVG e' testo, ma va servito senza sorprese.
+*.svg text eol=lf

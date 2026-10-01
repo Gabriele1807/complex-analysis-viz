@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" height="330" role="img" aria-label="Architettura: lo stato alimenta la matematica, che alimenta la resa in WebGL e SVG">
+  <title>Architettura dell'applicazione</title>
+  <desc>Lo stato (useReducer) alimenta il livello matematico, privo di dipendenze dal DOM; questo produce curve, punti e uniformi che il livello di resa disegna con un canvas WebGL per il campo continuo e un overlay SVG per gli oggetti discreti. L'interazione del puntatore torna allo stato.</desc>
+
+  <defs>
+    <style>
+      .sfondo { fill: #0e1117; }
+      .riquadro { fill: #161b23; stroke: #2a3240; stroke-width: 1.5; rx: 10; }
+      .riquadro-math { fill: #14201e; stroke: #2bd9c8; stroke-width: 1.5; rx: 10; }
+      .riquadro-resa { fill: #201a14; stroke: #ffb347; stroke-width: 1.5; rx: 10; }
+      .riquadro-stato { fill: #1a1726; stroke: #c77dff; stroke-width: 1.5; rx: 10; }
+      .titolo { fill: #e6ebf2; font: 600 14px "Segoe UI", system-ui, sans-serif; }
+      .etichetta { fill: #9aa5b1; font: 11.5px "Consolas", monospace; }
+      .nota { fill: #9aa5b1; font: 11px "Segoe UI", system-ui, sans-serif; }
+      .intestazione { fill: #6f7b8a; font: 600 10.5px "Segoe UI", system-ui, sans-serif; letter-spacing: 0.09em; }
+      .freccia { stroke: #5a6676; stroke-width: 1.8; fill: none; }
+      .freccia-ritorno { stroke: #c77dff; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; }
+    </style>
+    <marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5a6676"/>
+    </marker>
+    <marker id="punta-viola" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c77dff"/>
+    </marker>
+  </defs>
+
+  <rect class="sfondo" x="0" y="0" width="900" height="330"/>
+
+  <!-- Stato -->
+  <text class="intestazione" x="30" y="34">STATO</text>
+  <rect class="riquadro-stato" x="30" y="44" width="180" height="110"/>
+  <text class="titolo" x="46" y="70">store.tsx</text>
+  <text class="etichetta" x="46" y="92">useReducer unico</text>
+  <text class="nota" x="46" y="112">mappa · punto z · dominio</text>
+  <text class="nota" x="46" y="128">interruttori · scheda</text>
+  <text class="nota" x="46" y="144">traiettoria · preset</text>
+
+  <!-- Matematica -->
+  <text class="intestazione" x="265" y="34">MATEMATICA — nessuna dipendenza dal DOM</text>
+  <rect class="riquadro-math" x="265" y="44" width="230" height="220"/>
+  <text class="titolo" x="281" y="70">src/math/</text>
+  <text class="etichetta" x="281" y="94">complex.ts</text>
+  <text class="nota" x="293" y="110">Arg ∈ (−π, π]</text>
+  <text class="etichetta" x="281" y="132">complexMaps.ts</text>
+  <text class="nota" x="293" y="148">z^n · z^i · rami · radici</text>
+  <text class="etichetta" x="281" y="170">curves.ts</text>
+  <text class="nota" x="293" y="186">f(γ(t)) ricampionata</text>
+  <text class="etichetta" x="281" y="208">framing.ts · presets.ts</text>
+  <text class="nota" x="293" y="224">inquadratura · casi guidati</text>
+  <text class="nota" x="281" y="250">↳ 55 test delle identità</text>
+
+  <!-- Composizione -->
+  <text class="intestazione" x="550" y="34">COMPOSIZIONE</text>
+  <rect class="riquadro" x="550" y="44" width="150" height="110"/>
+  <text class="titolo" x="566" y="70">App.tsx</text>
+  <text class="nota" x="566" y="92">nessuna formula:</text>
+  <text class="nota" x="566" y="110">deriva curve,</text>
+  <text class="nota" x="566" y="128">punti e uniformi</text>
+
+  <!-- Resa -->
+  <text class="intestazione" x="740" y="34">RESA</text>
+  <rect class="riquadro-resa" x="740" y="44" width="135" height="92"/>
+  <text class="titolo" x="756" y="70">canvas WebGL</text>
+  <text class="nota" x="756" y="90">campo continuo:</text>
+  <text class="nota" x="756" y="107">un valore per pixel</text>
+  <text class="nota" x="756" y="124">shader.ts</text>
+
+  <rect class="riquadro-resa" x="740" y="152" width="135" height="104"/>
+  <text class="titolo" x="756" y="178">overlay SVG</text>
+  <text class="nota" x="756" y="198">oggetti discreti:</text>
+  <text class="nota" x="756" y="215">assi, curve, punti,</text>
+  <text class="nota" x="756" y="232">etichette, hit-test</text>
+  <text class="nota" x="756" y="249">PlaneView.tsx</text>
+
+  <!-- Frecce -->
+  <path class="freccia" marker-end="url(#punta)" d="M 210 99 L 258 99"/>
+  <path class="freccia" marker-end="url(#punta)" d="M 495 99 L 543 99"/>
+  <path class="freccia" marker-end="url(#punta)" d="M 700 90 L 733 90"/>
+  <path class="freccia" marker-end="url(#punta)" d="M 700 108 L 720 108 L 720 200 L 733 200"/>
+
+  <!-- Ritorno: l'interazione del puntatore aggiorna lo stato -->
+  <path class="freccia-ritorno" marker-end="url(#punta-viola)" d="M 807 262 L 807 296 L 120 296 L 120 160"/>
+  <text class="nota" x="380" y="290" fill="#c77dff">clic · trascinamento · rotella · tastiera</text>
+
+  <text class="nota" x="30" y="188">Plotly.js (superfici 3D)</text>
+  <text class="nota" x="30" y="205">caricato con import()</text>
+  <text class="nota" x="30" y="222">dinamico: chunk a parte,</text>
+  <text class="nota" x="30" y="239">fuori dal bundle iniziale</text>
+</svg>

@@ -1,0 +1,31 @@
+{
+  "name": "mappe-complesse",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Esplorazione interattiva delle mappe complesse z^n e z^i",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "controlla": "tsc --noEmit",
+    "verifica:ui": "node scripts/verifica-ui.mjs",
+    "verifica": "npm run controlla && npm test && npm run confronta && npm run verifica:ui",
+    "confronta": "node scripts/confronta-con-python.mjs"
+  },
+  "dependencies": {
+    "plotly.js-dist-min": "^2.35.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}

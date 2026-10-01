@@ -1,0 +1,33 @@
+# Ambienti e dipendenze (ricostruibili dai file di lock / requirements)
+video_animation/.venv/
+interactive_map/node_modules/
+
+# Output di build dell'app
+interactive_map/dist/
+
+# Output di Manim.
+# I file parziali e le immagini sono rigenerabili; i video finiti si tengono,
+# perche' sono il deliverable e richiedono molto tempo di rendering.
+video_animation/media/videos/scenes/*/partial_movie_files/
+video_animation/media/images/
+video_animation/media/texts/
+video_animation/media/Tex/
+video_animation/media/elenco_scene.txt
+
+# Cache
+__pycache__/
+*.pyc
+.pytest_cache/
+.vite/
+*.tsbuildinfo
+
+# Sistema
+Thumbs.db
+.DS_Store
+
+# Log temporanei di MiKTeX
+*.log
+mfput.*
+
+# Vercel
+.vercel/
