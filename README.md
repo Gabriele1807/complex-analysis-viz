@@ -2,16 +2,23 @@
 
 ### 🌐 Il sito è online su **[www.wasef.it](https://www.wasef.it)**
 
+### 🎬 I video sono in [`video_animation/media/videos/`](video_animation/media/videos/) — scarica **[1080p60 · 18,7 MB](video_animation/media/videos/potenze_complesse_1080p60.mp4)** oppure **[480p15 · 5,2 MB](video_animation/media/videos/potenze_complesse_480p15.mp4)**
+
+*Il sito si apre e basta. I video invece vanno scaricati: GitHub non riproduce
+i file `.mp4` nel browser. Stesso contenuto nelle due versioni — 4 min 25 s —
+la 480p serve solo per una visione rapida o con poca banda. Nella stessa
+cartella ci sono anche le [sei scene singole](video_animation/media/videos/scenes/1080p60/).*
+
+---
+
 Due strumenti complementari per studiare la differenza strutturale fra la
 potenza intera e la potenza a esponente immaginario, a livello di corso di
 analisi complessa.
 
 | Cosa | Dove |
 |---|---|
-| 🌐 **Mappa interattiva** — l'applicazione web, da usare subito nel browser | **[www.wasef.it](https://www.wasef.it)** |
-| 🎬 **Video didattico** — 4 min 25 s, 1920×1080 a 60 fps | [`video_animation/media/videos/potenze_complesse_1080p60.mp4`](video_animation/media/videos/potenze_complesse_1080p60.mp4) *(18,7 MB — su GitHub va scaricato per guardarlo)* |
-| 💻 Codice dell'applicazione | [`interactive_map/`](interactive_map/) |
-| 💻 Codice delle animazioni | [`video_animation/`](video_animation/) |
+| 💻 Codice dell'applicazione web | [`interactive_map/`](interactive_map/) |
+| 💻 Codice delle animazioni Manim | [`video_animation/`](video_animation/) |
 
 **Il video espone il ragionamento in forma lineare; il sito permette di
 verificarlo su qualunque punto.** Condividono convenzioni, definizioni e le
