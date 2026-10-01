@@ -1,9 +1,13 @@
 # Mappa interattiva — `z^n` e `z^i` nel browser
 
+### 🌐 Online su **[www.wasef.it](https://www.wasef.it)** — non serve installare nulla per provarla
+
 Applicazione web per esplorare le mappe complesse `z ↦ z^n` e `z ↦ z^i`: due
 piani affiancati, ritratto di fase calcolato per pixel in WebGL, selezione del
 punto con clic e trascinamento, pannello matematico completo, superfici 3D di
 modulo e argomento, traiettorie animate, preimmagini e dieci casi guidati.
+
+Le istruzioni qui sotto servono per eseguirla in locale o per modificarla.
 
 ![architettura](assets/architettura.svg)
 

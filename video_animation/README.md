@@ -5,6 +5,11 @@ analisi complessa, il confronto fra la potenza intera e la potenza a esponente
 immaginario: definizioni formali, logaritmo principale, taglio di ramo,
 avvolgimento, radici `n`-esime, multivalenza e immagine.
 
+> 🎬 **Video già renderizzato**:
+> [`media/videos/potenze_complesse_1080p60.mp4`](media/videos/potenze_complesse_1080p60.mp4)
+> — 4 min 25 s, 1920×1080 a 60 fps, 18,7 MB.
+> 🌐 La controparte interattiva è online su **[www.wasef.it](https://www.wasef.it)**.
+
 ---
 
 ## Indice

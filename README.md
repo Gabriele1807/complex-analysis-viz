@@ -1,16 +1,54 @@
 # Potenze complesse: `z^n` e `z^i`
 
+### 🌐 Il sito è online su **[www.wasef.it](https://www.wasef.it)**
+
 Due strumenti complementari per studiare la differenza strutturale fra la
 potenza intera e la potenza a esponente immaginario, a livello di corso di
 analisi complessa.
 
-| | |
+| Cosa | Dove |
 |---|---|
-| **[`video_animation/`](video_animation/)** | Sei scene Manim che espongono il ragionamento in forma lineare: definizioni, logaritmo principale, taglio di ramo, avvolgimento, radici `n`-esime, multivalenza, confronto formale. ≈ 4 min 25 s. |
-| **[`interactive_map/`](interactive_map/)** | Applicazione web per verificare lo stesso ragionamento su qualunque punto: due piani affiancati, ritratto di fase in WebGL, pannello matematico, superfici 3D, traiettorie, preimmagini, dieci casi guidati. |
+| 🌐 **Mappa interattiva** — l'applicazione web, da usare subito nel browser | **[www.wasef.it](https://www.wasef.it)** |
+| 🎬 **Video didattico** — 4 min 25 s, 1920×1080 a 60 fps | [`video_animation/media/videos/potenze_complesse_1080p60.mp4`](video_animation/media/videos/potenze_complesse_1080p60.mp4) *(18,7 MB — su GitHub va scaricato per guardarlo)* |
+| 💻 Codice dell'applicazione | [`interactive_map/`](interactive_map/) |
+| 💻 Codice delle animazioni | [`video_animation/`](video_animation/) |
 
-Il video espone, l'app permette di controllare. Condividono le convenzioni, le
-definizioni e le quattro correzioni matematiche elencate più sotto.
+**Il video espone il ragionamento in forma lineare; il sito permette di
+verificarlo su qualunque punto.** Condividono convenzioni, definizioni e le
+quattro correzioni matematiche elencate più sotto.
+
+---
+
+## Che cosa contiene questo repository
+
+### 🌐 [`interactive_map/`](interactive_map/) — il sito, [www.wasef.it](https://www.wasef.it)
+
+Applicazione Vite + React + TypeScript, senza backend. Due piani complessi
+affiancati, con il **ritratto di fase calcolato per pixel sulla GPU** in
+WebGL 2 e un overlay SVG per curve, punti ed etichette. Si sceglie `z` con un
+clic o trascinandolo, e il pannello matematico mostra modulo, argomento in
+radianti e gradi, radici `n`-esime, i rami `k = −2…2` e gli avvisi sui punti
+critici. In più: superfici 3D di modulo e argomento, traiettorie parametriche
+con conteggio degli avvolgimenti, preimmagini e **dieci casi guidati** che
+impostano tutto e spiegano il fenomeno.
+
+### 🎬 [`video_animation/`](video_animation/) — il video
+
+Sei scene Manim Community Edition, renderizzate a 1080p60:
+
+| Scena | Durata | Contenuto |
+|---|---|---|
+| `S01Intro` | 0:39 | definizioni formali, `Log z`, taglio di ramo |
+| `S02PotenzeIntere` | 1:18 | `z^n` per `n = 2…5`, avvolgimento, radici `n`-esime |
+| `S03PotenzaImmaginaria` | 1:07 | derivazione di `z^i`, immagini di cerchi e raggi, `i^i` |
+| `S04Multivalenza` | 0:45 | i rami `k = −2…2`, non iniettività |
+| `S05Confronto` | 0:17 | tabella comparativa su otto voci |
+| `S06Outro` | 0:19 | i tre teoremi chiave |
+
+Nel repository ci sono le singole scene, il video completo e una versione in
+bozza a 480p per chi vuole solo dare un'occhiata rapida
+([`potenze_complesse_480p15.mp4`](video_animation/media/videos/potenze_complesse_480p15.mp4),
+5,2 MB).
 
 ---
 
@@ -37,6 +75,13 @@ configurazione e risoluzione dei problemi in dettaglio.
 ---
 
 ## Pubblicazione su Vercel
+
+Il sito è già pubblicato su **[www.wasef.it](https://www.wasef.it)**: ogni push
+su `main` ne ridistribuisce una nuova versione. L'apex `wasef.it` reindirizza
+al `www` con un 308 permanente.
+
+Quanto segue serve per replicare la pubblicazione da zero, per esempio su un
+fork.
 
 L'app è una **cartella statica senza backend**: si pubblica così com'è.
 
