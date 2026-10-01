@@ -40,25 +40,32 @@ configurazione e risoluzione dei problemi in dettaglio.
 
 L'app è una **cartella statica senza backend**: si pubblica così com'è.
 
-Il file `vercel.json` nella radice contiene già tutto, quindi importando il
-repository su Vercel **non serve configurare nulla**:
+Questo è un repository con due progetti, e solo `interactive_map/` va
+costruito. La configurazione sta quindi in `interactive_map/vercel.json`:
 
 ```json
 {
-  "installCommand": "cd interactive_map && npm install",
-  "buildCommand": "cd interactive_map && npm run build",
-  "outputDirectory": "interactive_map/dist"
+  "framework": "vite",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
 ```
 
 1. su [vercel.com/new](https://vercel.com/new), importa il repository;
-2. lascia tutte le impostazioni come sono e premi **Deploy**.
+2. verifica che **Root Directory** sia `interactive_map` — all'import Vercel
+   la rileva da sola, perché è lì che si trova il `package.json`;
+3. premi **Deploy**.
 
-In alternativa, se preferisci non usare `vercel.json`, puoi cancellarlo e
-impostare nel pannello di Vercel **Root Directory = `interactive_map`**: il
-preset Vite viene riconosciuto da solo.
+> **Attenzione al percorso dei comandi.** Install e build vengono eseguiti
+> *dentro* la Root Directory, non nella radice del repository. Un
+> `vercel.json` nella radice con comandi del tipo
+> `cd interactive_map && npm install` fallisce con
+> `sh: line 1: cd: interactive_map: No such file or directory`, perché il
+> processo è già dentro `interactive_map`. I percorsi in
+> `interactive_map/vercel.json` sono quindi tutti relativi a quella cartella.
 
-Oppure da riga di comando, dalla radice del repository:
+Oppure da riga di comando, dalla cartella `interactive_map/`:
 
 ```bash
 npx vercel          # anteprima
@@ -67,7 +74,7 @@ npx vercel --prod   # produzione
 
 ### I video non vengono pubblicati
 
-`vercel.json` costruisce solo `interactive_map/`, quindi i file in
+La build parte dalla Root Directory `interactive_map/`, quindi i file in
 `video_animation/media/` restano nel repository ma **non** finiscono sul sito.
 È voluto: sono 48 MB che il sito non usa.
 
